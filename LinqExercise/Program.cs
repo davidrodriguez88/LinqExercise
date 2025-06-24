@@ -11,28 +11,84 @@ namespace LinqExercise
 
         static void Main(string[] args)
         {
-            /*
-             * 
-             * Complete every task using Method OR Query syntax. 
-             * You may find that Method syntax is easier to use since it is most like C#
-             * Every one of these can be completed using Linq and then printing with a foreach loop.
-             * Push to your github when completed!
-             * 
-             */
-
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+            
             //TODO: Print the Sum of numbers
-
+            Console.WriteLine($"Sum of numbers: {numbers.Sum()}");
+            
+            Console.WriteLine();
+            
             //TODO: Print the Average of numbers
-
+            Console.WriteLine($"Average of numbers: {numbers.Average()}");
+            
+            Console.WriteLine();
+            
             //TODO: Order numbers in ascending order and print to the console
+            var ascendingNumbers = numbers.OrderBy(n => n).ToList();
+            
+            Console.WriteLine("Ascending Numbers");
+            Console.WriteLine("------------------");
+            
+            foreach (var number in ascendingNumbers)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
 
             //TODO: Order numbers in descending order and print to the console
+            var descendingNumbers =  numbers.OrderByDescending(n => n).ToList();
 
+            Console.WriteLine("Descending Numbers");
+            Console.WriteLine("------------------");
+            
+            foreach (var number in descendingNumbers)
+            {
+                Console.WriteLine(number);
+            }
+
+            Console.WriteLine();
             //TODO: Print to the console only the numbers greater than 6
-
+            
+            var greaterThanSix = numbers.Where(n => n > 6);
+            
+            Console.WriteLine("Greater than Six");
+            Console.WriteLine("----------------");
+            
+            foreach (var number in greaterThanSix)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
             //TODO: Order numbers in any order (ascending or desc) but only print 4 of them **foreach loop only!**
 
+            var evens = numbers
+                .Where(n => n % 2 == 0 && n != 0)
+                .OrderBy(n => n)
+                .Take(4);
+            
+            Console.WriteLine("Evens");
+            Console.WriteLine("-----");
+            
+            foreach (var number in evens)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
+            
             //TODO: Change the value at index 4 to your age, then print the numbers in descending order
+
+            numbers[4] = 36;
+            
+            var updatedDescending = numbers.OrderByDescending(n => n);
+
+            Console.WriteLine("Descending with age at index 4");
+            Console.WriteLine("------------------------------");
+            
+            foreach (var number in updatedDescending)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
 
             // List of employees ****Do not remove this****
             var employees = CreateEmployees();
