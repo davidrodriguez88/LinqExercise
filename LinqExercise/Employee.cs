@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LinqExercise
+﻿namespace LinqExercise
 {
-    internal class Employee
+    public class Employee
     {
-        public int Age { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FullName
-        {
-            get
-            {
-                return $"{FirstName} {LastName}";
-            }
-        }
+        public int Age { get; set; }
         public int YearsOfExperience { get; set; }
+
+        public string FullName => $"{FirstName} {LastName}";
 
         public Employee(string firstName, string lastName, int age, int yearsOfExperience)
         {
@@ -24,11 +15,6 @@ namespace LinqExercise
             LastName = lastName;
             Age = age;
             YearsOfExperience = yearsOfExperience;
-        }
-        
-        public Employee()
-        {
-            
         }
     }
 }
